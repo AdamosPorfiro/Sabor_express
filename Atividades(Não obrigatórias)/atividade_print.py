@@ -14,22 +14,25 @@ A
 
 pi = 3.14159
 """
+'''
 from math import ceil, floor #Importação de 2 modulos da biblioteca math, também podemos importar tudo usando: import math
 
 print('Python na Escola de Programação da Alura\n')
 nome = input('Digite o seu nome: ')
 idade = input('Digite a sua idade: ')
 print(f'Meu nome é {nome} e tenho {idade} anos')
-print('''
+print(
 A
 L
 U
 R
 A
-''')
+
 pi = 3.14159 #Função round arredonda o número para o mais próximo Ex: 3.14159 = 3 ou 3.85678 = 4 podemos também definir quantas casa decimais indicando como paramêtro a quantidade de casas
-print(f'''
+print(f
 Arredondamento com dois decimais {round(pi,2)}.
 Arredondamento para cima: {ceil(pi)}.
 Arredondamento para baixo {floor(pi)}.
-''') #Ceil = Arredonda para cima + | floor = Arredonda para baixo -
+''' #Ceil = Arredonda para cima + | floor = Arredonda para baixo -'''
+
+print('Camiseta', 'Calça', 'Bermuda', 'Chinelo', sep='\n')
