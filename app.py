@@ -28,4 +28,3 @@ opcao_escolhida = input('Escolha uma opção: ')#input = Recebemos informações
 print(f'Você escolheu a opção {opcao_escolhida}') #Podemos exibir uma mensagem e juntar a informação passada pelo usuario em um print usando fstring = interpolação de string, usando 'f' no inicio da informação e '{}' para invocar a variavel ou função a ser exibida.
 
 
-
