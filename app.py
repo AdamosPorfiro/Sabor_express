@@ -32,7 +32,7 @@ def escolher_opcao():
     opcao_escolhida = int(input('Escolha uma opção: '))
     # opcao_escolhida = int(opcao_escolhida) #input = Recebemos informações do usuario (É possivel passar informação'exibir') criamos uma variavel para armazenar a opção escolhida pelo usuario
     # print(type(opcao_escolhida)) #type() = Verifica classe da informação passa no parametro
-
+    
     print(f'Você escolheu a opção {opcao_escolhida}') #Podemos exibir uma mensagem e juntar a informação passada pelo usuario em um print usando fstring = interpolação de string, usando 'f' no inicio da informação e '{}' para invocar a variavel ou função a ser exibida.
     #se opcao_escolhida for igual a 1{codigos}
     match opcao_escolhida:
