@@ -35,8 +35,9 @@ Arredondamento para cima: {ceil(pi)}.
 Arredondamento para baixo {floor(pi)}.
 ''') #Ceil = Arredonda para cima + | floor = Arredonda para baixo -.
 
+#Exemplos adicionais
 print('A', 'B', 'C', 'D', sep='\n') #sep='\n' = Argumento que define um separador entre os itens, ele diz para usar uma nova linha para cada item 
 
 departamento = input('Digite o departamento: ')
 responsavel = input('Digite o nome do responsavel: ')
-print('O departamento de ' + departamento + ' é liderado por ' + responsavel + '.')
+print('O departamento de ' + departamento + ' é liderado por ' + responsavel + '.') #Também podemos utilizar essa forma para concatenar e interpolar as strings.
