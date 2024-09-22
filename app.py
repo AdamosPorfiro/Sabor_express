@@ -24,7 +24,21 @@ print('2. Listar restaurante')
 print('3. Ativar restaurante')
 print('4. Sair\n') #\n Pula uma linha
 
-opcao_escolhida = input('Escolha uma opção: ')#input = Recebemos informações do usuario (É possivel passar informação'exibir') criamos uma variavel para armazenar a opção escolhida pelo usuario
+opcao_escolhida = int(input('Escolha uma opção: '))#input = Recebemos informações do usuario (É possivel passar informação'exibir') criamos uma variavel para armazenar a opção escolhida pelo usuario
+
+print(type(opcao_escolhida)) #type() = Verifica classe da informação passa no parametro
+print(type(1))
+
 print(f'Você escolheu a opção {opcao_escolhida}') #Podemos exibir uma mensagem e juntar a informação passada pelo usuario em um print usando fstring = interpolação de string, usando 'f' no inicio da informação e '{}' para invocar a variavel ou função a ser exibida.
 
-
+#se opcao_escolhida for igual a 1{codigos}
+if opcao_escolhida == 1:
+    print('Cadastrar restaurante')
+#se não se
+elif opcao_escolhida == 2:
+    print('Listar restaurantes')
+elif opcao_escolhida == 3:
+    print('Ativar restaurante')
+#Se não
+else:
+    print('Encerrando o programa')
