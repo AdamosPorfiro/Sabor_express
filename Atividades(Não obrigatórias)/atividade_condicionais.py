@@ -67,13 +67,13 @@ def quadrante_cartesiano():
     y = int(input('Informe valor de y: '))
 
     if x > 0 and y > 0:
-        print('Primeiro quadrante')
+        print('O ponto se encontra no: Primeiro quadrante')
     elif x < 0 and y > 0:
-        print('Segundo quadrante')
+        print('O ponto se encontra no: Segundo quadrante')
     elif x < 0 and y < 0:
-        print('Terceiro quadrante')
+        print('O ponto se encontra no: Terceiro quadrante')
     elif x > 0 and y < 0:
-        print('Quarto quadrante')
+        print('O ponto se encontra no: Quarto quadrante')
     else:
         print('O ponto está no eixo ou origem')
 
