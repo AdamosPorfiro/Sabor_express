@@ -36,12 +36,19 @@ def cadastrar_novo_restaurante():
     nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
     restaurantes.append(nome_do_restaurante) #.append = Adiciona na lista a informação
     print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!\n')
-    input('Aperte enter para voltar ao menu principal')
+    input('Aperte "ENTER" para voltar ao menu principal')
     main()
 
 def opcao_invalida():
     print('Opção inválida!\n')
-    input('Digite uma tecla para voltar ao menu principal: ')
+    input('Aperte "ENTER" para voltar ao menu principal')
+    main()
+
+def listar_restaurantes():
+    print('Lista de restaurantes')
+    for i in restaurantes:
+        print(i)
+    input('\nAperte enter para voltar ao menu principal')
     main()
 
 def escolher_opcao():
