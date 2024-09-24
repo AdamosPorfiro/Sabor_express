@@ -20,13 +20,7 @@ print('Python na Escola de Programação da Alura\n')
 nome = input('Digite o seu nome: ')
 idade = input('Digite a sua idade: ')
 print(f'Meu nome é {nome} e tenho {idade} anos')
-print('''
-A
-L
-U
-R
-A
-''')
+print('A','L','U','R','A',sep='\n')
 
 pi = 3.14159 #Função round arredonda o número para o mais próximo Ex: 3.14159 = 3 ou 3.85678 = 4 podemos também definir quantas casa decimais indicando como paramêtro a quantidade de casas
 print(f'''
