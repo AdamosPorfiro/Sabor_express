@@ -45,9 +45,10 @@ def opcao_invalida():
     main()
 
 def listar_restaurantes():
-    print('Lista de restaurantes')
+    system('cls')
+    print('Lista de restaurantes\n')
     for i in restaurantes:
-        print(i)
+        print(f'- {i}')
     input('\nAperte enter para voltar ao menu principal')
     main()
 
@@ -65,7 +66,7 @@ def escolher_opcao():
             case 2:
                 listar_restaurantes()
             case 3:
-                print('Ativar restaurante')
+                ativar_restaurante()
             case 4:
                 finalizar_app()
             case _:
