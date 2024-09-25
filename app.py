@@ -7,7 +7,7 @@ from os import system
 restaurantes = ['Pizza', 'Sushi'] # Lista = Usamos colchetes, para criar uma lista
 
 def exibir_nome_do_programa():
-    print("""
+    exibir_textos("""
             ░██████╗░█████╗░██████╗░░█████╗░██████╗░
             ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗
             ╚█████╗░███████║██████╦╝██║░░██║██████╔╝
@@ -19,8 +19,7 @@ def exibir_nome_do_programa():
     █████╗░░░╚███╔╝░██████╔╝██████╔╝█████╗░░╚█████╗░╚█████╗░
     ██╔══╝░░░██╔██╗░██╔═══╝░██╔══██╗██╔══╝░░░╚═══██╗░╚═══██╗
     ███████╗██╔╝╚██╗██║░░░░░██║░░██║███████╗██████╔╝██████╔╝
-    ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░
-    """)
+    ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░""")
     #Podemos fazer uma quebra de linha utlizado aspas triplas, usamos dependendo da situação
     #https://fsymbols.com/pt/ - Alteração da fonte
 
@@ -33,35 +32,35 @@ def exibir_opcoes():
 def cadastrar_novo_restaurante():
     resp = 'S'
     while resp == 'S':
-        exibir_subtilo('Cadastro de novos restaurantes')
+        exibir_textos('Cadastro de novos restaurantes')
         nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
 
         if len(nome_do_restaurante.strip()) < 4: #len = contar cada letra e strip vai tirar todos os espaços vazios, deixando apenas as letras
-            exibir_subtilo('Deve conter no mínimo 4 letras!')
+            exibir_textos('Deve conter no mínimo 4 letras!')
         elif nome_do_restaurante.isalpha() == False: #isalpha = retorna verdadeiro caso possua apenas string (letras)
-            exibir_subtilo('Digite apenas letras')
+            exibir_textos('Digite apenas letras')
         else:
             restaurantes.append(nome_do_restaurante) #.append = Adiciona na lista a informação
-            exibir_subtilo(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
+            exibir_textos(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
 
         resp = input('Deseja cadastrar mais restaurantes [S/N]: ').upper().strip()
     voltar_ao_menu_principal()
 
 def voltar_ao_menu_principal():
-    input('\nAperte "ENTER" para voltar ao menu principal ')
+    exibir_textos(input('\nAperte "ENTER" para voltar ao menu principal '))
     main()
 
 def opcao_invalida():
-    print('Opção inválida!\n')
+    exibir_textos('Opção inválida!')
     voltar_ao_menu_principal()
 
-def exibir_subtilo(texto):
+def exibir_textos(texto):
     system('cls')
     print(texto)
     print()
 
 def listar_restaurantes():
-    exibir_subtilo('Lista de restaurantes')
+    exibir_textos('Lista de restaurantes')
     for i in restaurantes: #Para cada restaurante na lista restaurante print
         print(f'- {i}')
     voltar_ao_menu_principal()
@@ -71,8 +70,7 @@ def escolher_opcao():
         opcao_escolhida = int(input('Escolha uma opção: '))
         # opcao_escolhida = int(opcao_escolhida) #input = Recebemos informações do usuario (É possivel passar informação'exibir') criamos uma variavel para armazenar a opção escolhida pelo usuario
         # print(type(opcao_escolhida)) #type() = Verifica classe da informação passa no parametro
-        
-        print(f'Você escolheu a opção {opcao_escolhida}') #Podemos exibir uma mensagem e juntar a informação passada pelo usuario em um print usando fstring = interpolação de string, usando 'f' no inicio da informação e '{}' para invocar a variavel ou função a ser exibida.
+        # exibir_textos(f'Você escolheu a opção {opcao_escolhida}') #Podemos exibir uma mensagem e juntar a informação passada pelo usuario em um print usando fstring = interpolação de string, usando 'f' no inicio da informação e '{}' para invocar a variavel ou função a ser exibida.
         #se opcao_escolhida for igual a 1{codigos}
         match opcao_escolhida:
             case 1:
@@ -80,7 +78,8 @@ def escolher_opcao():
             case 2:
                 listar_restaurantes()
             case 3:
-                ativar_restaurante()
+                pass
+                #ativar_restaurante() 
             case 4:
                 finalizar_app()
             case _:
@@ -103,7 +102,7 @@ def escolher_opcao():
         opcao_invalida()"""
 
 def finalizar_app(): # def = Definição, cria uma função
-     exibir_subtilo('Finalizando o app')
+     exibir_textos('Finalizando o app')
 #    system('cls') #no windows
 #    system('clear') no mac
 
