@@ -4,7 +4,7 @@ Para executar utilizando windows, abrimos o terminal e escrevemos: python app.py
 '''
 #print('Hello,World')
 from os import system
-restaurantes = [] # Lista = Usamos colchetes, para criar uma lista
+restaurantes = ['Pizza', 'Sushi'] # Lista = Usamos colchetes, para criar uma lista
 
 def exibir_nome_do_programa():
     print("""
@@ -29,28 +29,42 @@ def exibir_opcoes():
     print('2. Listar restaurante')
     print('3. Ativar restaurante')
     print('4. Sair\n') #\n Pula uma linha
-
+    
 def cadastrar_novo_restaurante():
-    system('cls')
-    print('Cadastro de novos restaurantes\n')
-    nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
-    restaurantes.append(nome_do_restaurante) #.append = Adiciona na lista a informação
-    print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!\n')
-    input('Aperte "ENTER" para voltar ao menu principal')
+    resp = 'S'
+    while resp == 'S':
+        exibir_subtilo('Cadastro de novos restaurantes')
+        nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
+
+        if len(nome_do_restaurante.strip()) < 4: #len = contar cada letra e strip vai tirar todos os espaços vazios, deixando apenas as letras
+            exibir_subtilo('Deve conter no mínimo 4 letras!')
+        elif nome_do_restaurante.isalpha() == False: #isalpha = retorna verdadeiro caso possua apenas string (letras)
+            exibir_subtilo('Digite apenas letras')
+        else:
+            restaurantes.append(nome_do_restaurante) #.append = Adiciona na lista a informação
+            exibir_subtilo(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
+
+        resp = input('Deseja cadastrar mais restaurantes [S/N]: ').upper().strip()
+    voltar_ao_menu_principal()
+
+def voltar_ao_menu_principal():
+    input('\nAperte "ENTER" para voltar ao menu principal ')
     main()
 
 def opcao_invalida():
     print('Opção inválida!\n')
-    input('Aperte "ENTER" para voltar ao menu principal')
-    main()
+    voltar_ao_menu_principal()
+
+def exibir_subtilo(texto):
+    system('cls')
+    print(texto)
+    print()
 
 def listar_restaurantes():
-    system('cls')
-    print('Lista de restaurantes\n')
-    for i in restaurantes:
+    exibir_subtilo('Lista de restaurantes')
+    for i in restaurantes: #Para cada restaurante na lista restaurante print
         print(f'- {i}')
-    input('\nAperte enter para voltar ao menu principal')
-    main()
+    voltar_ao_menu_principal()
 
 def escolher_opcao():
     try: # Permite que você teste um bloco de código em busca de erros, se houver algum erro ele vai executar o except, se não houver erro ele segue o bloco de código naturalmente
@@ -89,9 +103,9 @@ def escolher_opcao():
         opcao_invalida()"""
 
 def finalizar_app(): # def = Definição, cria uma função
-     system('cls') #no windows
+     exibir_subtilo('Finalizando o app')
+#    system('cls') #no windows
 #    system('clear') no mac
-     print('Finalizando o app\n')
 
 def main():
      system('cls')
