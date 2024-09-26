@@ -87,19 +87,19 @@ def escolher_opcao():
     except: # Permite que você lide com o erro 
         opcao_invalida()
         
-    """if opcao_escolhida == 1:
-        print('Cadastrar restaurante')
-    #se não se
-    elif opcao_escolhida == 2:
-        print('Listar restaurantes')
-    elif opcao_escolhida == 3:
-        print('Ativar restaurante')
-    #Se não
-    elif:
-    #   print('Encerrando o programa')
-        finalizar_app()
-    else:
-        opcao_invalida()"""
+    # if opcao_escolhida == 1:
+    #     print('Cadastrar restaurante')
+    # #se não se
+    # elif opcao_escolhida == 2:
+    #     print('Listar restaurantes')
+    # elif opcao_escolhida == 3:
+    #     print('Ativar restaurante')
+    # #Se não
+    # elif:
+    # #   print('Encerrando o programa')
+    #     finalizar_app()
+    # else:
+    #     opcao_invalida()
 
 def finalizar_app(): # def = Definição, cria uma função
      exibir_textos('Finalizando o app')
