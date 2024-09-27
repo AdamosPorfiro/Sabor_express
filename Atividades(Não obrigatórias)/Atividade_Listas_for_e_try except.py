@@ -49,3 +49,20 @@ except TypeError:
         print('Erro: Um dos itens na lista não é um número válido para a soma.')
 
 # 7 - Construa um código que calcule a média dos valores em uma lista. Utilize um bloco try-except para lidar com a divisão por zero, caso a lista esteja vazia.
+
+media = (8,10,7,6.5,'abc')
+calculo = 0
+quantidade_de_medas_na_lista = 0
+
+try:
+    for i in media:
+        if isinstance(i,(int,float)):
+                calculo = i + calculo
+                quantidade_de_medas_na_lista += 1
+    print(f'\nMédia é de: {calculo / quantidade_de_medas_na_lista:.1f}')
+
+except TypeError:
+    print('\nError: A lista está vazia, ou possui valores invalidos por favor verifique a lista de medias')
+    
+        
+    
