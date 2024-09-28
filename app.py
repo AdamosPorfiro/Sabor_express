@@ -4,7 +4,12 @@ Para executar utilizando windows, abrimos o terminal e escrevemos: python app.py
 '''
 #print('Hello,World')
 from os import system
-restaurantes = ['Pizza', 'Sushi'] # Lista = Usamos colchetes, para criar uma lista
+# restaurantes = ['Pizza', 'Sushi'] # Lista = Usamos colchetes, para criar uma lista
+# #                  0       1
+# #                ativo   desativado
+restaurantes = [{'nome':'Praça', 'categoria':'Japonesa', 'ativo':False},
+                {'nome':'Pizza suprema', 'categoria':'Italiana','ativo':True},
+                {'nome':'Cantina','categoria':'Italiano','ativo':'False'}]
 
 def exibir_nome_do_programa():
     exibir_textos("""
@@ -62,7 +67,10 @@ def exibir_textos(texto):
 def listar_restaurantes():
     exibir_textos('Lista de restaurantes')
     for i in restaurantes: #Para cada restaurante na lista restaurante print
-        print(f'- {i}')
+        nome_restaurate = i['nome']
+        categoria = i['categoria']
+        ativo = i['ativo']
+        print(f'- {nome_restaurate} | {categoria} | {ativo}')
     voltar_ao_menu_principal()
 
 def escolher_opcao():
