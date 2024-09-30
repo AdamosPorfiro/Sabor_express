@@ -9,10 +9,11 @@ from os import system
 # #                ativo   desativado
 restaurantes = [{'nome':'Praça', 'categoria':'Japonesa', 'ativo':False},
                 {'nome':'Pizza suprema', 'categoria':'Italiana','ativo':True},
-                {'nome':'Cantina','categoria':'Italiano','ativo':'False'}]
+                {'nome':'Cantina','categoria':'Italiano','ativo':False}
+]
 
 def exibir_nome_do_programa():
-    exibir_textos("""
+    print("""
             ░██████╗░█████╗░██████╗░░█████╗░██████╗░
             ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗
             ╚█████╗░███████║██████╦╝██║░░██║██████╔╝
@@ -31,7 +32,7 @@ def exibir_nome_do_programa():
 def exibir_opcoes():
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
-    print('3. Ativar restaurante')
+    print('3. Alternar estado do restaurante')
     print('4. Sair\n') #\n Pula uma linha
     
 def cadastrar_novo_restaurante():
@@ -39,14 +40,10 @@ def cadastrar_novo_restaurante():
     while resp == 'S':
         exibir_textos('Cadastro de novos restaurantes')
         nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
-
-        if len(nome_do_restaurante.strip()) < 4: #len = contar cada letra e strip vai tirar todos os espaços vazios, deixando apenas as letras
-            exibir_textos('Deve conter no mínimo 4 letras!')
-        elif nome_do_restaurante.isalpha() == False: #isalpha = retorna verdadeiro caso possua apenas string (letras)
-            exibir_textos('Digite apenas letras')
-        else:
-            restaurantes.append(nome_do_restaurante) #.append = Adiciona na lista a informação
-            exibir_textos(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
+        categoria = input(f'Digite o nome da categoria do restaurante {nome_do_restaurante}: ')
+        dados_do_restaurante = {'nome':nome_do_restaurante,'categoria':categoria,'ativo':False}
+        restaurantes.append(dados_do_restaurante)
+        exibir_textos(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
 
         resp = input('Deseja cadastrar mais restaurantes [S/N]: ').upper().strip()
     voltar_ao_menu_principal()
@@ -61,16 +58,21 @@ def opcao_invalida():
 
 def exibir_textos(texto):
     system('cls')
+    linha = '*' * (len(texto) + 4)
+    print(linha)
     print(texto)
+    print(linha)
     print()
 
 def listar_restaurantes():
     exibir_textos('Lista de restaurantes')
+    print(f'{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | Status')
+    print('-' * 60)
     for i in restaurantes: #Para cada restaurante na lista restaurante print
         nome_restaurate = i['nome']
         categoria = i['categoria']
-        ativo = i['ativo']
-        print(f'- {nome_restaurate} | {categoria} | {ativo}')
+        ativo = 'ativado' if i['ativo'] else 'desativado' # Ternario
+        print(f'- {nome_restaurate.ljust(20)} | {categoria.ljust(20)} | {ativo}')
     voltar_ao_menu_principal()
 
 def escolher_opcao():
@@ -86,8 +88,7 @@ def escolher_opcao():
             case 2:
                 listar_restaurantes()
             case 3:
-                pass
-                #ativar_restaurante() 
+                alternar_estado_restaurante() 
             case 4:
                 finalizar_app()
             case _:
@@ -108,6 +109,21 @@ def escolher_opcao():
     #     finalizar_app()
     # else:
     #     opcao_invalida()
+
+def alternar_estado_restaurante():
+    exibir_textos('Alternando estado do restaurante')
+    nome_restaurante = input('Digite o nome do restaurante que deseja alterar o estado: ')
+    restaurante_encontrado = False
+
+    for restaurante in restaurantes:
+        if nome_restaurante == restaurante['nome']:
+            restaurante_encontrado = True
+            restaurante['ativo'] = not restaurante['ativo']
+            mensagem = f'O resurante {nome_restaurante} foi ativado com sucesso!' if restaurante['ativo'] else f'O  {nome_restaurante} foi desativado com sucesso!'
+            print(mensagem)
+    if not restaurante_encontrado:
+        print(f'O restaurante {nome_restaurante} não foi encontrado!')
+    voltar_ao_menu_principal()
 
 def finalizar_app(): # def = Definição, cria uma função
      exibir_textos('Finalizando o app')
