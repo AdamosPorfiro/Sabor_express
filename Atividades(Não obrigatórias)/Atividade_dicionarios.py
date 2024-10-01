@@ -36,7 +36,7 @@ print(numeros_em_drobro)
 verificacao_de_dados = dados_pessoais.get('profissao', 'Não existe dados da profissao do usuario!')
 print(verificacao_de_dados)
 
-    # 5 - Escreva um código que conte a frequência de cada palavra em uma frase utilizando um dicionário.
+# 5 - Escreva um código que conte a frequência de cada palavra em uma frase utilizando um dicionário.
 
 frequencia = {}
 from os import system
@@ -53,11 +53,14 @@ def contandor():
 
 def resposta():
     resp = input('\nDeseja continuar[S/N]: ').upper().strip()
-    if resp == 'S':
-        menu_principal()
-    else:
-        finalizando_programa()
-
+    match resp:
+        case 'S':
+            menu_principal()
+        case 'N':
+            finalizando_programa()
+        case _:
+            resposta()
+        
 def finalizando_programa():
     print('\n')
     for palavra in frequencia:
