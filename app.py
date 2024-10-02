@@ -13,6 +13,8 @@ restaurantes = [{'nome':'Praça', 'categoria':'Japonesa', 'ativo':False},
 ]
 
 def exibir_nome_do_programa():
+    '''Essa função exibe o nome do restaurante'''
+
     print("""
             ░██████╗░█████╗░██████╗░░█████╗░██████╗░
             ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗
@@ -30,12 +32,15 @@ def exibir_nome_do_programa():
     #https://fsymbols.com/pt/ - Alteração da fonte
 
 def exibir_opcoes():
+    '''Essa função exibe as opções para navegar no aplicativo'''
+
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
     print('3. Alternar estado do restaurante')
     print('4. Sair\n') #\n Pula uma linha
     
 def cadastrar_novo_restaurante():
+    '''Essa função é responsavel por cadastrar um novo restaurante'''
     resp = 'S'
     while resp == 'S':
         exibir_textos('Cadastro de novos restaurantes')
@@ -49,14 +54,20 @@ def cadastrar_novo_restaurante():
     voltar_ao_menu_principal()
 
 def voltar_ao_menu_principal():
+    '''Essa função é responsavel por retornar ao Menu principal'''
+
     exibir_textos(input('\nAperte "ENTER" para voltar ao menu principal '))
     main()
 
 def opcao_invalida():
+    '''Essa função é responsavel por exibir para o usuario que a opção escolhida é invalida e retorna ao menu principal'''
+
     exibir_textos('Opção inválida!')
     voltar_ao_menu_principal()
 
 def exibir_textos(texto):
+    '''Essa função é responsavel por exibir os textos, subtitulos do aplicativo'''
+
     system('cls')
     linha = '*' * (len(texto) + 4)
     print(linha)
@@ -65,6 +76,8 @@ def exibir_textos(texto):
     print()
 
 def listar_restaurantes():
+    '''Essa função é responsavel por listar os restaurantes cadastrados para os usuarios'''
+
     exibir_textos('Lista de restaurantes')
     print(f'{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | Status')
     print('-' * 60)
@@ -76,6 +89,8 @@ def listar_restaurantes():
     voltar_ao_menu_principal()
 
 def escolher_opcao():
+    '''Essa função permite o usuario acessar as demais funções do aplicativo que são exibidas da função exibir_opcoes'''
+
     try: # Permite que você teste um bloco de código em busca de erros, se houver algum erro ele vai executar o except, se não houver erro ele segue o bloco de código naturalmente
         opcao_escolhida = int(input('Escolha uma opção: '))
         # opcao_escolhida = int(opcao_escolhida) #input = Recebemos informações do usuario (É possivel passar informação'exibir') criamos uma variavel para armazenar a opção escolhida pelo usuario
@@ -111,6 +126,8 @@ def escolher_opcao():
     #     opcao_invalida()
 
 def alternar_estado_restaurante():
+    '''Essa função permite alterar o estado de um restaurante cadastrado para ativado ou desativado'''
+
     exibir_textos('Alternando estado do restaurante')
     nome_restaurante = input('Digite o nome do restaurante que deseja alterar o estado: ')
     restaurante_encontrado = False
@@ -126,15 +143,19 @@ def alternar_estado_restaurante():
     voltar_ao_menu_principal()
 
 def finalizar_app(): # def = Definição, cria uma função
+     '''Essa função exibe para o usuario o texto de finalização, fechamento do aplicativo'''
+
      exibir_textos('Finalizando o app')
 #    system('cls') #no windows
 #    system('clear') no mac
 
 def main():
-     system('cls')
-     exibir_nome_do_programa()
-     exibir_opcoes()
-     escolher_opcao()
+    '''Essa função faz a limpeza do menu e exibe em seguida todo o menu de opções para o usuario navegar no aplicativo'''
+
+    system('cls')
+    exibir_nome_do_programa()
+    exibir_opcoes()
+    escolher_opcao()
 
 if __name__ == '__main__':
      main()
