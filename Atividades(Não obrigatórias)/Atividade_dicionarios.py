@@ -59,7 +59,7 @@ def resposta():
             menu_principal()
         case 'N':
             finalizando_programa()
-        case _:
+        case _: 
             resposta()
         
 def finalizando_programa():
