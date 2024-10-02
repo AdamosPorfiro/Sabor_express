@@ -26,14 +26,15 @@ dados_pessoais.pop('profissao')
 print(dados_pessoais)
 
 # 3 - Crie um dicionário utilizando para representar números e seus quadrados de 1 a 5.
-numeros_em_drobro = (
-    {1:1*1, 2:2*2, 3:3*3, 4:4*4, 5:5*5}
-)
-print(numeros_em_drobro)
+numeros_em_drobro = {
+    1:1*1, 2:2*2, 3:3*3, 4:4*4, 5:5*5
+    }
+for dobro in numeros_em_drobro:
+    print(f'O quadrado de {dobro} é: {numeros_em_drobro[dobro]}')
 
 # 4 - Crie um dicionário e verifique se uma chave específica existe dentro desse dicionário.
 
-verificacao_de_dados = dados_pessoais.get('profissao', 'Não existe dados da profissao do usuario!')
+verificacao_de_dados = dados_pessoais.get('profissao', 'Não existe esse informação do usuario!')
 print(verificacao_de_dados)
 
 # 5 - Escreva um código que conte a frequência de cada palavra em uma frase utilizando um dicionário.
