@@ -32,7 +32,9 @@ def exibir_nome_do_programa():
     #https://fsymbols.com/pt/ - Alteração da fonte
 
 def exibir_opcoes():
-    '''Essa função exibe as opções para navegar no aplicativo'''
+    '''
+    Essa função exibe as opções para navegar no aplicativo:
+    '''
 
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
@@ -40,12 +42,30 @@ def exibir_opcoes():
     print('4. Sair\n') #\n Pula uma linha
     
 def cadastrar_novo_restaurante():
-    '''Essa função é responsavel por cadastrar um novo restaurante'''
+    '''
+    Essa função é responsavel por cadastrar um novo restaurante
+    
+    - While = Vai repetir um novo cadastro em quanto a resposta do usuario for S (SIM);
+    
+    Input:
+    - Nome do restaurante;
+    - Categoria do restaurante;
+    - Se o cliente deseja continuar cadastrando restaurantes.
+
+    Output:
+    - Dados do restaurante;
+    - Esses dados serão enviados para a lista de restaurantes;
+    - Exibe informaçao de cadastro para o cliente;
+    - Se resposta for S(SIM) o While repete novamente os input's e outpu'ts
+
+    '''
     resp = 'S'
     while resp == 'S':
+
         exibir_textos('Cadastro de novos restaurantes')
         nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
         categoria = input(f'Digite o nome da categoria do restaurante {nome_do_restaurante}: ')
+
         dados_do_restaurante = {'nome':nome_do_restaurante,'categoria':categoria,'ativo':False}
         restaurantes.append(dados_do_restaurante)
         exibir_textos(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
@@ -54,7 +74,9 @@ def cadastrar_novo_restaurante():
     voltar_ao_menu_principal()
 
 def voltar_ao_menu_principal():
-    '''Essa função é responsavel por retornar ao Menu principal'''
+    '''
+    Essa função é responsavel por retornar ao Menu principal
+    '''
 
     exibir_textos(input('\nAperte "ENTER" para voltar ao menu principal '))
     main()
@@ -76,7 +98,14 @@ def exibir_textos(texto):
     print()
 
 def listar_restaurantes():
-    '''Essa função é responsavel por listar os restaurantes cadastrados para os usuarios'''
+    '''
+    Essa função é responsavel por listar os restaurantes cadastrados para os usuarios
+
+    Input:
+    - Print exibe a lista de restaurantes;
+    - For que exibe item cadastrado do restaurante separadamente;
+    - Retorna ao menu principal.
+    '''
 
     exibir_textos('Lista de restaurantes')
     print(f'{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | Status')
@@ -89,7 +118,9 @@ def listar_restaurantes():
     voltar_ao_menu_principal()
 
 def escolher_opcao():
-    '''Essa função permite o usuario acessar as demais funções do aplicativo que são exibidas da função exibir_opcoes'''
+    '''
+    Essa função permite o usuario acessar as demais funções do aplicativo que são exibidas da função exibir_opcoes
+    '''
 
     try: # Permite que você teste um bloco de código em busca de erros, se houver algum erro ele vai executar o except, se não houver erro ele segue o bloco de código naturalmente
         opcao_escolhida = int(input('Escolha uma opção: '))
@@ -126,7 +157,10 @@ def escolher_opcao():
     #     opcao_invalida()
 
 def alternar_estado_restaurante():
-    '''Essa função permite alterar o estado de um restaurante cadastrado para ativado ou desativado'''
+    '''
+    Essa função permite alterar o estado de um restaurante cadastrado para ativado ou desativado
+    
+    '''
 
     exibir_textos('Alternando estado do restaurante')
     nome_restaurante = input('Digite o nome do restaurante que deseja alterar o estado: ')
