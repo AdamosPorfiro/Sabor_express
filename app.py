@@ -75,20 +75,42 @@ def cadastrar_novo_restaurante():
 
 def voltar_ao_menu_principal():
     '''
-    Essa função é responsavel por retornar ao Menu principal
+    Essa função é responsavel por retornar ao Menu principal.
+
+    Input:
+    - Usuario apertar ENTER.
+
+    Output:
+    - Invoca função main() retorna ao menu principal.
     '''
 
     exibir_textos(input('\nAperte "ENTER" para voltar ao menu principal '))
     main()
 
 def opcao_invalida():
-    '''Essa função é responsavel por exibir para o usuario que a opção escolhida é invalida e retorna ao menu principal'''
+    '''
+    Essa função é responsavel por exibir para o usuario, que a opção escolhida é invalida e retorna ao menu principal.
+
+    Input:
+    - input - Perguntando se quer escolher outra opção ou voltar ao menu principal.
+
+    Output:
+    - Print - exibindo que a opção escolhida é invalida.
+    '''
 
     exibir_textos('Opção inválida!')
     voltar_ao_menu_principal()
 
 def exibir_textos(texto):
-    '''Essa função é responsavel por exibir os textos, subtitulos do aplicativo'''
+    '''
+    Essa função é responsavel por exibir os textos, subtitulos do aplicativo.
+
+    Input:
+    - Parametro(texto) - Quando invocarmos essa função, o parametro passado na função receberá uma entrada.
+
+    Output:
+    - Print - Exibir o parâmetro passado.
+    '''
 
     system('cls')
     linha = '*' * (len(texto) + 4)
@@ -150,20 +172,6 @@ def escolher_opcao():
                 opcao_invalida()
     except: # Permite que você lide com o erro 
         opcao_invalida()
-        
-    # if opcao_escolhida == 1:
-    #     print('Cadastrar restaurante')
-    # #se não se
-    # elif opcao_escolhida == 2:
-    #     print('Listar restaurantes')
-    # elif opcao_escolhida == 3:
-    #     print('Ativar restaurante')
-    # #Se não
-    # elif:
-    # #   print('Encerrando o programa')
-    #     finalizar_app()
-    # else:
-    #     opcao_invalida()
 
 def alternar_estado_restaurante():
     '''
@@ -195,7 +203,12 @@ def alternar_estado_restaurante():
     voltar_ao_menu_principal()
 
 def finalizar_app(): # def = Definição, cria uma função
-     '''Essa função exibe para o usuario o texto de finalização, fechamento do aplicativo'''
+     '''
+    Essa função exibe para o usuario o texto de finalização, fechamento do aplicativo.
+
+    Output:
+    - Print - exibe um texto finalizando o aplicativo.
+    '''
 
      exibir_textos('Finalizando o app')
 #    system('cls') #no windows
