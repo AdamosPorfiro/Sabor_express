@@ -120,6 +120,15 @@ def listar_restaurantes():
 def escolher_opcao():
     '''
     Essa função permite o usuario acessar as demais funções do aplicativo que são exibidas da função exibir_opcoes
+
+    Input:
+    - Usuario deve escolher uma das opções exibidas pela função exibir_opcoes();
+    
+    Output:
+    - Caso a opção seja valida o usuario será redirecionado para a tela escolhida;
+    - Por fim caso a opção não exista ele irá invocar função opção_invalida().
+
+    Temo um Try except para lidar com possiveis erros.
     '''
 
     try: # Permite que você teste um bloco de código em busca de erros, se houver algum erro ele vai executar o except, se não houver erro ele segue o bloco de código naturalmente
@@ -160,6 +169,15 @@ def alternar_estado_restaurante():
     '''
     Essa função permite alterar o estado de um restaurante cadastrado para ativado ou desativado
     
+    Input:
+    - Nome do restaurante que deseja alterar;
+    - Variavel restaurante_encontrado inicializada como False;
+    - Vamos iterar com for e verificar se o restaurante existe, caso sim ele ativa o restaurante ou desativa;
+
+    Output:
+    - Print que exibe para o usuario se o restaurante foi ativado ou não;
+    - Caso não exista o nome passado como input, ele exibe que não foi encontrado;
+    - Por fim ele retorna ao menu principal.
     '''
 
     exibir_textos('Alternando estado do restaurante')
@@ -184,7 +202,17 @@ def finalizar_app(): # def = Definição, cria uma função
 #    system('clear') no mac
 
 def main():
-    '''Essa função faz a limpeza do menu e exibe em seguida todo o menu de opções para o usuario navegar no aplicativo'''
+    '''
+    Essa função faz a limpeza do menu e exibe em seguida todo o menu de opções para o usuario navegar no aplicativo
+    
+    Input:
+    - Invocamos a função de escolher_opções permitindo que o usuario itere com o aplicativo
+
+    Output:
+    - Faz a limpeza da tela utilizando biblioteca 'os' modulo 'cls';
+    - Invocamos a função exibir nome do programa();
+    - Invocamos a função exibir as opções para o usuario visualisar e navegar pelo aplicativo;
+    '''
 
     system('cls')
     exibir_nome_do_programa()
