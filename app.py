@@ -33,7 +33,10 @@ def exibir_nome_do_programa():
 
 def exibir_opcoes():
     '''
-    Essa função exibe as opções para navegar no aplicativo:
+    Essa função exibe as opções para navegar no aplicativo.
+
+    Output:
+    - Print - Opções para o usuario escolher.
     '''
 
     print('1. Cadastrar restaurante')
