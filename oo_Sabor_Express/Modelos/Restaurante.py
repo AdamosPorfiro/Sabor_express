@@ -1,30 +1,38 @@
 class Restaurante: # Classe + Atributos
+    restaurantes = []
     def __init__(self, nome, categoria):
         self.nome = nome
         self.categoria = categoria
         self.ativo = False
+        Restaurante.restaurantes.append(self)
+
     def __str__(self):
         return f'{self.nome} | {self.categoria}'
+    
+    def listar_restaurantes():
+        for restaurante in Restaurante.restaurantes:
+            print(f'{restaurante.nome} | {restaurante.categoria} | {restaurante.ativo}')
 
 restaurante_praca = Restaurante('Praça','Gourmet')
 restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
 
-restaurantes = [restaurante_praca, restaurante_pizza]
-
 # print(dir(restaurante_praca)) #dir = Exibe todas os atributos, métodos e propriedades de um self.
 #vars = Mostra um dicionarios dos atributos e metodos, que foi os atributos passados no código anterior
-print(restaurante_pizza)
-print(restaurante_praca)
+Restaurante.listar_restaurantes()
 
 
-# class Musica:
-#     nome = ''
-#     artista = ''
-#     duracao = float()
+class Musica:
+    musicas = []
 
-# musica_1 =  Musica()
-# musica_1.nome = 'Lacrimosa - Warum so tief?'
-# musica_1.artista = 'Tilo wolf'
-# musica_1.duracao = 9.11
+    def __init__(self,nome,artista,duracao):
+        self.nome = nome
+        self.artista = artista
+        self.duracao = duracao
+        Musica.musicas.append(self)
+    
+    def listar_musicas():
+        for musica in Musica.musicas:
+            print(f'Nome da música: {musica.nome}\nNome do artista: {musica.artista}\nDuração da música: {musica.duracao} minutos') 
 
-# print(f'Nome da música: {musica_1.nome}', f'Artista: {musica_1.artista}',f'Duração: {musica_1.duracao}', sep='\n')
+Musica('Lacrimosa - Warum so tief?', 'Tilo wolf', 9.11)
+Musica.listar_musicas()
