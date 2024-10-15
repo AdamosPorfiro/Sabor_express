@@ -1,40 +1,58 @@
 # 1.Implemente uma classe chamada Carro com os atributos básicos, como modelo, cor e ano Crie uma instância dessa classe e atribua valores aos seus atributos      
+# from os import system
 
-class Carro:
-    carros = []
+# class Carro:
+#     carros = []
 
-    def __init__(self,modelo,cor,ano):
-        self.modelo = modelo
-        self.cor = cor
-        self.ano = ano
-        Carro.carros.append(self)
+#     def __init__(,modelo,cor,ano):
+#         .modelo = modelo
+#         .cor = cor
+#         .ano = ano
+#         Carro.carros.append()
+#         system('cls')
 
-    def listar_carros():
-        print()
-        print('=' * 40)
-        print('Modelo'.ljust(14),'Cor'.ljust(15),'Ano')
-        print('-' * 40)
-        for carro in Carro.carros:
-            print(f'{carro.modelo.ljust(15)}{carro.cor.ljust(15)}{carro.ano}')
-            # print(f'Modelo: {carro.modelo}', f'Cor: {carro.cor}', f'Ano: {carro.ano}',sep='\n')
+#     def listar_carros():
+#         print()
+#         print('=' * 40)
+#         print('Modelo'.ljust(14),'Cor'.ljust(15),'Ano')
+#         print('-' * 40)
+#         for carro in Carro.carros:
+#             print(f'{carro.modelo.ljust(15)}{carro.cor.ljust(15)}{carro.ano}')
+#             # print(f'Modelo: {carro.modelo}', f'Cor: {carro.cor}', f'Ano: {carro.ano}',sep='\n')
 
-resp = 'S'
-while resp == 'S':
-    print('=' * 40)
-    modelo = input('Qual modelo do carro: ').capitalize()
-    cor = input('Qual a cor do carro: ').capitalize()
-    ano = int(input('Qual o ano do carro: '))
-    print('=' * 40)
-    Carro(modelo,cor,ano)
+# resp = 'S'
+# while resp == 'S':
+#     print('=' * 40)
+#     modelo = input('Qual modelo do carro: ').capitalize()
+#     cor = input('Qual a cor do carro: ').capitalize()
+#     ano = int(input('Qual o ano do carro: '))
+#     print('=' * 40)
+#     Carro(modelo,cor,ano) # <---- Instância
 
-    resp = input('Deseja continuar? [S/N]: ').upper().strip()
-    if resp == 'N':
-        resp = 'N'
+#     resp = input('Deseja continuar? [S/N]: ').upper().strip()
+#     if resp == 'N':
+#         resp = 'N'
 
-Carro.listar_carros()
-print('=' * 40)
+# Carro.listar_carros()
+# print('=' * 40)
 
 # 2.Crie uma classe chamada Restaurante com os atributos nome, categoria, ativo e crie mais 2 atributos Instancie um restaurante e atribua valores aos seus atributos
+from os import system
+class Restaurante:
+    nome = ''
+    categoria = ''
+    ativo = False
+    endereco = ''
+    contato = int()
+
+system('cls')
+restaurante = Restaurante()
+restaurante.nome = 'Slice tennis'
+restaurante.categoria = 'Restaurante Esportivo'
+restaurante.endereco = 'Alameda Africa, 570 - Colinas Anhanguera'
+restaurante.contato = 11971440538
+
+print(f'Nome: {restaurante.nome}',f'Categoria: {restaurante.categoria}',f'Funcionamento: Ativo' if restaurante.ativo == True else 'Funcionamento: Inativo' ,f'Endereço: {restaurante.endereco}',f'Contato: {restaurante.contato}',sep='\n')
 
 # 3.Modifique a classe Restaurante adicionando um construtor que aceita nome e categoria como parâmetros e inicia ativo como False por padrão Crie uma instância utilizando o construtor
 
