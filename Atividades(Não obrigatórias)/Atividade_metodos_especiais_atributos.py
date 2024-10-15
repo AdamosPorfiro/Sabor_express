@@ -1,14 +1,15 @@
 # 1.Implemente uma classe chamada Carro com os atributos básicos, como modelo, cor e ano Crie uma instância dessa classe e atribua valores aos seus atributos      
+
 # from os import system
 
 # class Carro:
 #     carros = []
 
-#     def __init__(,modelo,cor,ano):
-#         .modelo = modelo
-#         .cor = cor
-#         .ano = ano
-#         Carro.carros.append()
+#     def __init__(self,modelo,cor,ano): <-------------arrumar
+#         self.modelo = modelo <-------------arrumar
+#         self.cor = cor
+#         self.ano = ano
+#         Carro.carros.append(self)
 #         system('cls')
 
 #     def listar_carros():
@@ -37,26 +38,38 @@
 # print('=' * 40)
 
 # 2.Crie uma classe chamada Restaurante com os atributos nome, categoria, ativo e crie mais 2 atributos Instancie um restaurante e atribua valores aos seus atributos
-from os import system
-class Restaurante:
-    nome = ''
-    categoria = ''
-    ativo = False
-    endereco = ''
-    contato = int()
 
-system('cls')
-restaurante = Restaurante()
-restaurante.nome = 'Slice tennis'
-restaurante.categoria = 'Restaurante Esportivo'
-restaurante.endereco = 'Alameda Africa, 570 - Colinas Anhanguera'
-restaurante.contato = 11971440538
+# from os import system
+# class Restaurante:
+#     nome = ''
+#     categoria = ''
+#     ativo = False
+#     endereco = ''
+#     contato = int()
 
-print(f'Nome: {restaurante.nome}',f'Categoria: {restaurante.categoria}',f'Funcionamento: Ativo' if restaurante.ativo == True else 'Funcionamento: Inativo' ,f'Endereço: {restaurante.endereco}',f'Contato: {restaurante.contato}',sep='\n')
+# system('cls')
+# restaurante = Restaurante()
+# restaurante.nome = 'Slice tennis'
+# restaurante.categoria = 'Restaurante Esportivo'
+# restaurante.endereco = 'Alameda África, 619 - Colinas da Anhanguera, Santana de Parnaíba - SP'
+# restaurante.contato = 11971440538
+
+# print(f'Nome: {restaurante.nome}',f'Categoria: {restaurante.categoria}',f'Funcionamento: Ativo' if restaurante.ativo == True else 'Funcionamento: Inativo' ,f'Endereço: {restaurante.endereco}',f'Contato: {restaurante.contato}',sep='\n')
 
 # 3.Modifique a classe Restaurante adicionando um construtor que aceita nome e categoria como parâmetros e inicia ativo como False por padrão Crie uma instância utilizando o construtor
 
+# class Restaurante:
+
+#     def __init__(self, nome, categoria):
+#         self.nome = nome
+#         self.categoria = categoria
+#         self.ativo = False
+
+# informacoes_restaurante = Restaurante('Pedra Branca', 'Self-service') # Instância da classe
+# print(f'Nome Restaurante: {informacoes_restaurante.nome}',f'Categoria: {informacoes_restaurante.categoria}',f'Situação: Ativo' if informacoes_restaurante.ativo == True else 'Situação: Inativo',sep='\n')
+
 # 4.Adicione um método especial __str__ à classe Restaurante para que, ao imprimir uma instância, seja exibida uma mensagem formatada com o nome e a categoria Exiba essa mensagem para uma instância de restaurante
+
 
 
 # 5.Crie uma classe chamada Cliente e pense em 4 atributos Em seguida, instancie 3 objetos desta classe e atribua valores aos seus atributos através de um método construtor
