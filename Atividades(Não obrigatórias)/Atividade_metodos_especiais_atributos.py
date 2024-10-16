@@ -1,7 +1,5 @@
 # 1.Implemente uma classe chamada Carro com os atributos básicos, como modelo, cor e ano Crie uma instância dessa classe e atribua valores aos seus atributos      
 
-from os import system
-
 class Carro:
     carros = []
 
@@ -10,7 +8,6 @@ class Carro:
         self.cor = cor
         self.ano = ano
         Carro.carros.append(self)
-        system('cls')
 
     def listar_carros():
         print()
@@ -39,7 +36,6 @@ print('=' * 40)
 
 # 2.Crie uma classe chamada Restaurante com os atributos nome, categoria, ativo e crie mais 2 atributos Instancie um restaurante e atribua valores aos seus atributos
 
-from os import system
 class Restaurante:
     nome = ''
     categoria = ''
@@ -47,7 +43,6 @@ class Restaurante:
     endereco = ''
     contato = int()
 
-system('cls')
 restaurante = Restaurante()
 restaurante.nome = 'Slice tennis'
 restaurante.categoria = 'Restaurante Esportivo'
