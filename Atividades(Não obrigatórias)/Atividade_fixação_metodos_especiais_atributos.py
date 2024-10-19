@@ -65,6 +65,7 @@ class Carro:
     
 carro1 = Carro("Toyota", "Corolla", 2019, 30000)
 carro2 = Carro("Volkswagen", "Gol", 2003, 132482)
+print()
 Carro.listar_carros()
 
 # 3.Contador de Instâncias Criadas:
@@ -81,14 +82,11 @@ class Animal:
         self.nome = nome
         Animal.lista_de_animais.append(self)
         Animal.contador += 1
-
-    @classmethod
-    def contador_de_instancias_criadas(cls):
-        return cls.contador
     
     @classmethod
     def animais_criados(cls):
         print()
+        print(f'Foram criados: {cls.contador} instâncias para animais')
         for i in cls.lista_de_animais:
             print(f'{i.descricao}')
     
@@ -102,6 +100,24 @@ animal_3 = Animal('Gato')
 
 Animal.animais_criados()
 
+# 4.Conversão de Moedas:
 
+# Crie uma classe Moeda com atributos nome e taxa_conversao (por exemplo, de dólar para reais, a taxa pode ser 5.0).
+# Adicione um método de classe a_partir_de_taxa que crie uma moeda a partir de uma taxa de conversão especificada.
+# Adicione uma propriedade taxa_em_reais que retorne quanto vale 1 unidade dessa moeda em reais.
+
+class Moeda:
+
+    def __init__(self, nome, taxa_conversao):
+        self.nome = nome
+        self.taxa_conversao = taxa_conversao
+
+    @classmethod
+    def a_partir_de_taxa(cls,nome,taxa_conversao):
+        return cls(nome, taxa_conversao = 5)
+    
+    @property
+    def taxa_em_reais(self):
+        return self.taxa_conversao * 1
         
 
