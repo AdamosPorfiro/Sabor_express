@@ -53,11 +53,55 @@ class Carro:
     @classmethod
     def carro_zero_km(cls, marca, modelo, ano):
         return cls(marca, modelo, ano, quilometragem=0)
+    
+    @classmethod
+    def listar_carros(cls):
+        for carro in cls.carros:
+            print(f'Idade do {carro.marca} {carro.modelo} é: {carro.idade} anos')
 
     @property
     def idade(self):
         return datetime.now().year - self.ano
     
 carro1 = Carro("Toyota", "Corolla", 2019, 30000)
-print(f"Idade do {carro1.marca} {carro1.modelo}: {carro1.idade} anos")
+carro2 = Carro("Volkswagen", "Gol", 2003, 132482)
+Carro.listar_carros()
+
+# 3.Contador de Instâncias Criadas:
+
+# Crie uma classe Animal que tenha um atributo nome.
+# Adicione um contador de instâncias criadas. Use um @classmethod para manter e acessar o número de instâncias criadas.
+# Implemente uma propriedade descricao que retorne uma string como "Animal: [nome]".
+
+class Animal:
+    
+    lista_de_animais = []
+    contador = 0
+    def __init__(self,nome):
+        self.nome = nome
+        Animal.lista_de_animais.append(self)
+        Animal.contador += 1
+
+    @classmethod
+    def contador_de_instancias_criadas(cls):
+        return cls.contador
+    
+    @classmethod
+    def animais_criados(cls):
+        print()
+        for i in cls.lista_de_animais:
+            print(f'{i.descricao}')
+    
+    @property
+    def descricao(self):
+        return f'Animal: {self.nome}'
+
+animal_1 = Animal('Girafa')
+animal_2 = Animal('Cachorro')
+animal_3 = Animal('Gato')
+
+Animal.animais_criados()
+
+
+        
 
