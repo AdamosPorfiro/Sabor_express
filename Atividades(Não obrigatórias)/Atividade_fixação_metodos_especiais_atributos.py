@@ -132,6 +132,22 @@ moeda_dollar.imprimir_dados()
 # 5. Sistema de Cadastro de Estudantes:
 # Crie uma classe Estudante com atributos como nome, idade e curso. Adicione um método de classe cadastrar que receba as informações de um estudante e retorne um objeto Estudante. Implemente uma propriedade que retorne uma descrição do estudante, incluindo o nome, idade e curso.
 
+class Estudante:
+
+    def __init__(self, nome, idade, curso):
+        self.nome = nome
+        self.idade = idade
+        self.curso = curso
+    
+    @classmethod
+    def cadastrar(cls,nome,idade,curso):
+        cls.cadastrar('Adamos',30,'Ciência da computação')
+
+    @property
+    def descricao(self):
+        return print(f'Aluno: {self.nome}\nIdade: {self.idade}\nCurso:{self.curso}')
+    
+print()
 # 6. Controle de Funcionários:
 # Crie uma classe Funcionario com atributos nome, cargo e salario. Adicione um método de classe criar_por_cargo que recebe um cargo e cria um funcionário com um salário padrão. Adicione uma propriedade que calcule o salário anual (salário mensal multiplicado por 12).
 
