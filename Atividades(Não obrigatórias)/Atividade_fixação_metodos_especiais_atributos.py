@@ -114,10 +114,17 @@ class Moeda:
 
     @classmethod
     def a_partir_de_taxa(cls,nome,taxa_conversao):
-        return cls(nome, taxa_conversao = 5)
+        return cls(nome, taxa_conversao)
+    
+    def imprimir_dados(self):
+        print(f'\nA taxa de conversão de um {self.nome} é de R$ {self.taxa_conversao} reais.')
     
     @property
     def taxa_em_reais(self):
-        return self.taxa_conversao * 1
-        
-
+        return self.taxa_conversao
+    
+moeda_dollar = Moeda.a_partir_de_taxa('Dolar', 5)
+moeda_dollar.imprimir_dados()
+# print()
+# print(f'Moeda: {moeda_dollar.nome}')
+# print(f'A taxa de conversão de um {moeda_dollar.nome} é de R$ {moeda_dollar.taxa_conversao} reais ')
