@@ -128,3 +128,21 @@ moeda_dollar.imprimir_dados()
 # print()
 # print(f'Moeda: {moeda_dollar.nome}')
 # print(f'A taxa de conversão de um {moeda_dollar.nome} é de R$ {moeda_dollar.taxa_conversao} reais ')
+
+# 5. Sistema de Cadastro de Estudantes:
+# Crie uma classe Estudante com atributos como nome, idade e curso. Adicione um método de classe cadastrar que receba as informações de um estudante e retorne um objeto Estudante. Implemente uma propriedade que retorne uma descrição do estudante, incluindo o nome, idade e curso.
+
+# 6. Controle de Funcionários:
+# Crie uma classe Funcionario com atributos nome, cargo e salario. Adicione um método de classe criar_por_cargo que recebe um cargo e cria um funcionário com um salário padrão. Adicione uma propriedade que calcule o salário anual (salário mensal multiplicado por 12).
+
+# 7. Sistema de Reservas de Hotel:
+# Crie uma classe Quarto que tenha atributos como numero, tipo (simples, duplo, suíte) e disponibilidade. Adicione um método de classe reservar_quarto que receba o número do quarto e retorne uma mensagem de confirmação. Implemente uma propriedade que retorne o status do quarto (disponível ou não).
+
+# 8. Sistema de Cadastro de Livros:
+# Crie uma classe Livro com atributos como titulo, autor e ano_publicacao. Adicione um método de classe adicionar_livro que receba as informações do livro e retorne um objeto Livro. Implemente uma propriedade que retorne uma descrição do livro, incluindo título, autor e ano de publicação.
+
+# 9. Gestão de Pedidos em um Restaurante:
+# Crie uma classe Pedido com atributos cliente, itens (uma lista de itens do pedido) e valor_total. Adicione um método de classe criar_pedido que receba o nome do cliente e uma lista de itens. Calcule o valor total do pedido. Implemente uma propriedade que retorne a descrição do pedido.
+
+# 10. Sistema de Registro de Atividades Físicas:
+# Crie uma classe Atividade com atributos nome, duracao (em minutos) e calorias. Adicione um método de classe registrar_atividade que receba as informações da atividade e retorne um objeto Atividade. Implemente uma propriedade que calcule a queima de calorias por minuto.
