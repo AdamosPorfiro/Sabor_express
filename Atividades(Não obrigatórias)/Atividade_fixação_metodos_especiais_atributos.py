@@ -132,24 +132,91 @@ moeda_dollar.imprimir_dados()
 # 5. Sistema de Cadastro de Estudantes:
 # Crie uma classe Estudante com atributos como nome, idade e curso. Adicione um método de classe cadastrar que receba as informações de um estudante e retorne um objeto Estudante. Implemente uma propriedade que retorne uma descrição do estudante, incluindo o nome, idade e curso.
 
-class Estudante:
+# class Estudante:
 
-    def __init__(self, nome, idade, curso):
-        self.nome = nome
-        self.idade = idade
-        self.curso = curso
-    
-    @classmethod
-    def cadastrar(cls,nome,idade,curso):
-        cls.cadastrar('Adamos',30,'Ciência da computação')
+#     estudantes = {}
 
-    @property
-    def descricao(self):
-        return print(f'Aluno: {self.nome}\nIdade: {self.idade}\nCurso:{self.curso}')
+#     def __init__(self, nome, idade, curso):
+#         self.nome = nome
+#         self.idade = idade
+#         self.curso = curso
+#         Estudante.estudantes[self.nome]= {
+#             'Idade' : self.idade, 
+#             'Curso' : self.curso
+#         }
     
-print()
+#     @classmethod
+#     def cadastrar(cls,nome,idade,curso):
+#         return cls(nome, idade, curso)
+    
+#     @classmethod
+#     def listar_alunos(cls):
+#         for nome, dados in cls.estudantes.items():
+#             estudante = cls(nome, dados['Idade'], dados['Curso'])
+#             print(estudante.descricao)
+    
+
+#     @property
+#     def descricao(self):
+#         return f'\nAluno: {self.nome}\nIdade: {self.idade}\nCurso:{self.curso}\n'
+    
+# resp = 'S'
+# while resp == 'S':
+#     nome = input('\nNome: ')
+#     idade = int(input('Idade: '))
+#     curso = input('Curso: ')
+#     Estudante.cadastrar(nome, idade, curso)
+
+#     resp = input('Deseja cadastrar mais alunos? [S/N]: ').upper().strip()
+#     if resp == 'N':
+#         break
+
+# Estudante.listar_alunos()
+
 # 6. Controle de Funcionários:
 # Crie uma classe Funcionario com atributos nome, cargo e salario. Adicione um método de classe criar_por_cargo que recebe um cargo e cria um funcionário com um salário padrão. Adicione uma propriedade que calcule o salário anual (salário mensal multiplicado por 12).
+
+class Funcionarios:
+
+    dados_de_cada_funcionario = {}
+
+    def __init__(self, nome, cargo, salario):
+        self.nome = nome
+        self.cargo = cargo
+        self.salario = salario
+        self.adicionar_funcionario()
+    
+    def adicionar_funcionario(self):
+        if self.cargo not in Funcionarios.dados_de_cada_funcionario:
+            Funcionarios.dados_de_cada_funcionario[self.cargo] = []
+        Funcionarios.dados_de_cada_funcionario[self.cargo].append(self)
+           
+    @classmethod
+    def criar_por_cargo(cls,nome,cargo):
+        salario_padrao = 3000
+        return cls(nome, cargo, salario_padrao)
+    
+    @classmethod
+    def listar_funcionarios(cls):
+        for cargo, funcionarios in cls.dados_de_cada_funcionario.items():
+            print(f'\nCargo: {cargo}')
+            for funcionario in funcionarios:
+                print(  f'Funcionario: {funcionario.nome}'
+                        f'\nSalario: {funcionario.salario}'
+                        f'\nSalario anual: {funcionario.calculo_salario_anual}\n'
+                      )
+                
+    
+    @property
+    def calculo_salario_anual(self):
+            return self.salario * 12
+    
+Funcionarios.criar_por_cargo('Adamos', 'Porteiro')
+Funcionarios.criar_por_cargo('Antonio', 'Vigilante')
+Funcionarios.criar_por_cargo('Vilma', 'Porteiro')
+Funcionarios.listar_funcionarios()
+
+
 
 # 7. Sistema de Reservas de Hotel:
 # Crie uma classe Quarto que tenha atributos como numero, tipo (simples, duplo, suíte) e disponibilidade. Adicione um método de classe reservar_quarto que receba o número do quarto e retorne uma mensagem de confirmação. Implemente uma propriedade que retorne o status do quarto (disponível ou não).
