@@ -221,11 +221,89 @@ Funcionarios.listar_funcionarios()
 # 7. Sistema de Reservas de Hotel:
 # Crie uma classe Quarto que tenha atributos como numero, tipo (simples, duplo, suíte) e disponibilidade. Adicione um método de classe reservar_quarto que receba o número do quarto e retorne uma mensagem de confirmação. Implemente uma propriedade que retorne o status do quarto (disponível ou não).
 
+class Quarto:
+
+    quartos = []
+    def __init__(self, numero, tipo ,disponibilidade):
+        self.numero = numero
+        self.tipo = tipo
+        self.disponibilidade = disponibilidade
+        Quarto.quartos.append(self)
+    
+    #Verificando cada atributo de classe armazenado na lista
+    # def __repr__(self):
+    #     status = "Disponível" if self.disponibilidade else "Indisponível"
+    #     return f"Quarto {self.numero} ({self.tipo}): {status}"
+
+    @classmethod
+    def reserva_quarto(cls):
+        mensagem = ''
+        for quarto in cls.quartos:
+            mensagem += f'Numero do quarto: {quarto.numero}\n'
+            mensagem += f'Tipo: {quarto.tipo}\n'
+            mensagem += f'Status: {quarto.status}\n\n'
+        return mensagem
+    
+    @property
+    def status(self):
+        return f'{'Disponível!' if self.disponibilidade else 'Indisponível!'}'
+    
+#Alimentar os atributos da classe
+quarto_simples = Quarto(1, 'Simples', True)
+quarto_duplo = Quarto(2, 'Duplo', False)
+quarto_suite = Quarto(3, 'Suíte', True)
+
+print(Quarto.reserva_quarto())
+
+
 # 8. Sistema de Cadastro de Livros:
 # Crie uma classe Livro com atributos como titulo, autor e ano_publicacao. Adicione um método de classe adicionar_livro que receba as informações do livro e retorne um objeto Livro. Implemente uma propriedade que retorne uma descrição do livro, incluindo título, autor e ano de publicação.
 
+class Livro:
+
+    livros = []
+    def __init__(self, titulo, autor, ano_publicacao):
+        self.titulo = titulo
+        self.autor = autor
+        self.ano_publicacao = ano_publicacao
+        Livro.livros.append(self)
+
+    @property
+    def descricao(self):
+        return (f'Titulo: {self.titulo}\n'
+                f'Autor: {self.autor}\n'
+                f'Ano de publicação: {self.ano_publicacao}\n\n')
+    
+    @classmethod
+    def adicionar_livro(cls,titulo,autor,ano_publicacao):
+        novo_livro = cls(titulo,autor,ano_publicacao)
+        return f'Livro {novo_livro.titulo} adicionado com sucesso!'
+      
+    @classmethod
+    def listar_livros(cls):
+        if not cls.livros:
+            return 'Não existe livros disponíveis'
+        return '\n'.join([livro.descricao for livro in cls.livros])
+
+livro_1 = Livro.adicionar_livro('A divina comédia', 'Dante Alighieri', 2017)
+livro_2 = Livro.adicionar_livro('Jesus viveu na índia', 'Holger Kersten', 2005)
+livro_2 = Livro.adicionar_livro('Anhangá: A furia do demônio', 'J. Modesto', 2008)
+
+print(Livro.listar_livros())
+
 # 9. Gestão de Pedidos em um Restaurante:
 # Crie uma classe Pedido com atributos cliente, itens (uma lista de itens do pedido) e valor_total. Adicione um método de classe criar_pedido que receba o nome do cliente e uma lista de itens. Calcule o valor total do pedido. Implemente uma propriedade que retorne a descrição do pedido.
+
+class Pedido:
+
+    pedidos = ()
+    def __init__(self,cliente,itens,valor_total):
+        self.cliente = cliente
+        self.itens = itens
+        self.valor_total = valor_total
+        Pedido.pedidos.append(self)
+
+
 
 # 10. Sistema de Registro de Atividades Físicas:
 # Crie uma classe Atividade com atributos nome, duracao (em minutos) e calorias. Adicione um método de classe registrar_atividade que receba as informações da atividade e retorne um objeto Atividade. Implemente uma propriedade que calcule a queima de calorias por minuto.
