@@ -296,14 +296,39 @@ print(Livro.listar_livros())
 
 class Pedido:
 
-    pedidos = ()
+    pedidos = []
     def __init__(self,cliente,itens,valor_total):
         self.cliente = cliente
         self.itens = itens
         self.valor_total = valor_total
         Pedido.pedidos.append(self)
+    
+    @property
+    def descricao(self):
+        itens_formatados = '\n'.join([f'{item}: R$ {preco:.2f}' for item, preco in self.itens.items()])
+        return (f'Cliente: {self.cliente}\n'
+                f'Itens: {itens_formatados}\n'
+                f'Valor total: R${self.valor_total:.2f}\n\n')
+        
 
+    @classmethod
+    def criar_pedido(cls, cliente, itens):
+        valor_pedido = sum(itens.values())
+        novo_pedido = cls(cliente,itens,valor_pedido)
+        return novo_pedido
+    
+    @classmethod
+    def listando_pedidos(cls):
+        if not cls.pedidos:
+            return 'Não possoi nenhum livro disponível'
+        return f'\n'.join([pedido.descricao for pedido in cls.pedidos])
+    
+item_1 = {'Prato simples' : 22.50, 'Refrigerante' : 5.99, 'Suco' : 3.99}
+item_2 = {'Combo lanche' : 12.5, 'Batata grande' : 6, 'Refrigerante pq' : 4.99}
+pedido_1 = Pedido.criar_pedido('Adamos', item_1)
+pedido_2 = Pedido.criar_pedido('Alesson', item_2)
 
+print(pedido_1.listando_pedidos())
 
 # 10. Sistema de Registro de Atividades Físicas:
 # Crie uma classe Atividade com atributos nome, duracao (em minutos) e calorias. Adicione um método de classe registrar_atividade que receba as informações da atividade e retorne um objeto Atividade. Implemente uma propriedade que calcule a queima de calorias por minuto.
