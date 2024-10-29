@@ -332,3 +332,131 @@ print(pedido_1.listando_pedidos())
 
 # 10. Sistema de Registro de Atividades Físicas:
 # Crie uma classe Atividade com atributos nome, duracao (em minutos) e calorias. Adicione um método de classe registrar_atividade que receba as informações da atividade e retorne um objeto Atividade. Implemente uma propriedade que calcule a queima de calorias por minuto.
+
+class Atividade:
+
+    atividades = []
+    def __init__(self, nome, duracao, calorias):
+        self.nome = nome
+        self.duracao = duracao
+        self.calorias = calorias
+        Atividade.atividades.append(self)
+
+    @classmethod
+    def registrar_atividade(cls, nome, duracao, calorias):
+        return cls(nome, duracao, calorias)
+    
+    @property
+    def queima_de_calorias_por_minuto(self):
+        if self.calorias == 0:
+            return 0
+        return self.calorias / self.duracao
+    
+    def mostrar_dados(self):
+        return (f'Nome: {self.nome}\n'
+                f'Duração: {self.duracao} minutos\n'
+                f'Calorias: {self.calorias} Kcal\n'
+                f'Calorias por minuto: {self.queima_de_calorias_por_minuto:.2f} \n\n')
+    
+    @classmethod
+    def mostrar_todas_as_atividade(cls):
+        if not cls.atividades:
+            return 'Nenhuma atividade registrada!'
+        return '\n'.join([atividade.mostrar_dados() for atividade in cls.atividades])
+    
+dados_exercicio_1 = Atividade.registrar_atividade('Corrida leve', 30, 350)
+dados_exercicio_2 = Atividade.registrar_atividade('Musculação', 60, 800)
+
+print(Atividade.mostrar_todas_as_atividade())
+
+# 11. Sistema de Gestão de Clientes
+# Crie uma classe Cliente que tenha atributos nome, email e telefone. Adicione um método de classe cadastrar_cliente que receba as informações de um cliente e retorne um objeto Cliente. Implemente uma propriedade que retorne a descrição do cliente.
+
+'''
+Temos uma classe que irá criar um objeto que possui 3 atributos, que são alimentados pela instância de classe, cliente 1 e 2, e esses dados são todos armazenados na lista como é indicado no construtor __init__. Temos um metodo de classe que vai retornar 1 objeto completo e uma propriedade que vai descrever os atributos informados e outro metodo de classe que irá retornar todos os objetos cadastrados na lista e por fim imprimi-los para o usuario.
+'''
+class Cliente:
+
+    clientes = [] # Lista com os objetos
+    def __init__(self, nome, email, telefone): # Construtor com os parametros a serem preenchidos.
+        self.nome = nome # Atributo do objeto
+        self.email = email # Atributo do objeto
+        self.telefone = telefone # Atributo do objeto
+        Cliente.clientes.append(self) # Armazena os atributos e seus valores
+
+    @classmethod # Metodo de classe
+    def cadastrar_cliente(cls, nome, email, telefone): # Cria um objeto único
+        return cls(nome, email, telefone) # Retorna esse objeto com seus atributos
+    
+    @property # Propriedade
+    def descricao(self): # Que irá ter a descrição com os valores(atributos) do objeto
+        return (f'Nome: {self.nome}\n' # Descrição com os atributos
+                f'Email: {self.email}\n' # Descrição com os atributos
+                f'Telefone: {self.telefone}\n\n') # Descrição com os atributos
+
+    @classmethod #Metodo de classe
+    def mostrar_todos_clientes(cls): # Vai mostrar todos os clientes da lista
+        if not cls.clientes: # Caso não tenha cliente na lista retornará a string 
+            return 'Nenhuma cliente cadastrado!' # string ou a seguir
+        return '\n'.join([cliente.descricao for cliente in cls.clientes]) # Um for que irá entrar a lista e retornar a string formatada conforme a descrição 
+
+cliente_1 = Cliente.cadastrar_cliente('Adamos', 'adamos.contato@gmail.com', 11986772188) # Atributo de classe (Adicionando valor ao objeto)
+cliente_2 = Cliente.cadastrar_cliente('Thiago', 'adamos.sumeriios@gmail.com', 11945687214) # Atributo de classe (Adicionando valor ao objeto)
+
+print(Cliente.mostrar_todos_clientes()) # Irá retornar a string conforme os dados da classe!
+
+# 12. Controle de Tarefas
+# Crie uma classe Tarefa com atributos titulo, descricao e status (pode ser "pendente" ou "concluída"). Adicione um método de classe criar_tarefa que receba as informações da tarefa e retorne um objeto Tarefa. Adicione um método que permita alterar o status da tarefa.
+
+class Tarefa:
+
+    tarefas = []
+    def __init__(self, titulo, descricao):
+        self.titulo = titulo
+        self.descricao = descricao
+        self.status = False
+        Tarefa.tarefas.append(self)
+
+    @classmethod
+    def criar_tarefa(cls,titulo,descricao):
+        return cls(titulo,descricao)
+    
+    @property
+    def status_mudar(self):
+        return '✔' if self.status else '✘'
+
+
+    def alterar_status(self):
+         self.status = not self.status
+
+tarefa_1 = Tarefa.criar_tarefa('Jogar lixo', 'Jogar o lixo na lixeira')
+tarefa_1.alterar_status()
+tarefa_2 = Tarefa.criar_tarefa('Meditar', 'Setar para meditar')
+tarefa_3 = Tarefa.criar_tarefa('Treinar', 'Ir para academia')
+
+print(f'Tarefa: {tarefa_1.titulo}\nDescrição: {tarefa_1.descricao}\nStatus: {tarefa_1.status_mudar}')
+
+# 13. Sistema de Vendas
+# Crie uma classe Venda com atributos cliente, produtos (uma lista de produtos vendidos) e valor_total. Adicione um método de classe registrar_venda que receba o nome do cliente e uma lista de produtos (com preço) e calcule o valor total. Implemente uma propriedade que retorne a descrição da venda.
+
+# 14. Gestão de Eventos
+# Crie uma classe Evento com atributos nome, data e local. Adicione um método de classe criar_evento que receba as informações do evento e retorne um objeto Evento. Implemente uma propriedade que retorne a descrição do evento, incluindo nome, data e local.
+
+# 15. Sistema de Inventário
+# Crie uma classe ItemInventario que tenha atributos nome, quantidade e preco_unitario. Adicione um método de classe adicionar_item que crie um item e o adicione a uma lista de inventário. Implemente uma propriedade que calcule o valor total do item no inventário (quantidade * preco_unitario).
+
+# 16. Gestão de Reservas de Restaurantes
+# Crie uma classe Reserva com atributos cliente, data e numero_de_pessoas. Adicione um método de classe fazer_reserva que receba as informações da reserva e retorne um objeto Reserva. Implemente uma propriedade que retorne a descrição da reserva.
+
+# 17. Controle de Funcionários de uma Escola
+# Crie uma classe Professor com atributos nome, materia e salario. Adicione um método de classe contratar que receba as informações do professor e retorne um objeto Professor. Implemente uma propriedade que calcule o salário anual do professor.
+
+# 18. Gestão de Alunos
+# Crie uma classe Aluno com atributos nome, curso e nota_final. Adicione um método de classe adicionar_aluno que receba as informações do aluno e retorne um objeto Aluno. Implemente uma propriedade que determine se o aluno está aprovado (nota_final maior ou igual a 7).
+
+# 19. Sistema de Compras Online
+# Crie uma classe Compra com atributos cliente, produtos (uma lista de produtos) e valor_total. Adicione um método de classe realizar_compra que receba o nome do cliente e uma lista de produtos e calcule o valor total. Implemente uma propriedade que retorne a descrição da compra.
+
+# 20. Controle de Equipamentos de uma Academia
+# Crie uma classe Equipamento com atributos nome, tipo e quantidade. Adicione um método de classe adicionar_equipamento que receba as informações do equipamento e retorne um objeto Equipamento. Implemente uma propriedade que retorne a descrição do equipamento.
+
