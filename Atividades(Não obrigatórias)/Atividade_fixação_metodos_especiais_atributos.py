@@ -439,6 +439,47 @@ print(f'Tarefa: {tarefa_1.titulo}\nDescrição: {tarefa_1.descricao}\nStatus: {t
 # 13. Sistema de Vendas
 # Crie uma classe Venda com atributos cliente, produtos (uma lista de produtos vendidos) e valor_total. Adicione um método de classe registrar_venda que receba o nome do cliente e uma lista de produtos (com preço) e calcule o valor total. Implemente uma propriedade que retorne a descrição da venda.
 
+class Venda:
+
+    vendas = []
+    def __init__(self,cliente,produtos,valor_total):
+        self.cliente = cliente
+        self.produtos = produtos
+        self.valor_total = valor_total
+        Venda.vendas.append(self)
+    
+    @classmethod
+    def registrar_vendas(cls,cliente,produtos):
+        valor_total = sum(produtos.values())
+        nova_venda = cls(cliente,produtos,valor_total)
+        return nova_venda
+    
+    @property
+    def descricao(self):
+        return '\n'.join([f'{produto.ljust(18)} | R$ {preco:.2f}' for produto,preco in self.produtos.items()])
+        
+    
+    @classmethod
+    def mostrar_tudo(cls):
+        if not cls.vendas:
+            return 'Não possui vendas!'
+        print(f'{'Nome'.ljust(18)} | {'Produtos'.ljust(20)} | {'Valor total'.ljust(18)}')
+        print(f'_' * 60)
+
+        for venda in cls.vendas:
+            print(f'{venda.cliente.ljust(18)}|')
+            print(venda.descricao)
+            print(f'{''.ljust(18)} | R$ {venda.valor_total:.2f}'.ljust(18))
+            print(f'_' * 60)
+
+produtos_1 = {'Pá de lixo' : 5.99, 'Vassoura' : 12.5, 'Jogo americano' : 3.00}
+venda_1 = Venda.registrar_vendas('Adamos',produtos_1)
+
+produto_2 = {'Arroz integral' : 8.89, 'Batata doce' : 5.99, 'Banana nanica' : 5.99, 'Iogurte natural': 11.99}
+venda_2 = Venda.registrar_vendas('Alesson', produto_2)
+
+print(Venda.mostrar_tudo())
+        
 # 14. Gestão de Eventos
 # Crie uma classe Evento com atributos nome, data e local. Adicione um método de classe criar_evento que receba as informações do evento e retorne um objeto Evento. Implemente uma propriedade que retorne a descrição do evento, incluindo nome, data e local.
 
