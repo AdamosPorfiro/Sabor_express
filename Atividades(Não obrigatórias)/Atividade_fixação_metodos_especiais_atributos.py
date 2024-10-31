@@ -481,23 +481,265 @@ print(Venda.mostrar_tudo())
 # 14. Gestão de Eventos
 # Crie uma classe Evento com atributos nome, data e local. Adicione um método de classe criar_evento que receba as informações do evento e retorne um objeto Evento. Implemente uma propriedade que retorne a descrição do evento, incluindo nome, data e local.
 
+class Evento:
 
+    eventos = []
+    def __init__(self, nome, data, local):
+        self.nome = nome
+        self.data = data
+        self.local = local
+        Evento.eventos.append(self)
+
+    @classmethod
+    def criar_evento(cls,nome, data, local):
+        return cls(nome, data, local)
+    
+    @property
+    def descricao(self):
+        return (f'Nome: {self.nome}\n'
+                f'Data: {self.data}\n'
+                f'Local: {self.local}\n')
+    
+    @classmethod
+    def mostrar_evento(cls):
+        if not cls.eventos:
+            return 'Nenhum evento encontrado!'
+        resultado = 'Eventos\n' + '='*30 + '\n'
+        for evento in cls.eventos:
+            resultado += evento.descricao + '-'*30 + '\n'
+        return resultado
+
+evento_1 = Evento.criar_evento('HAlloween', '10/11', 'Rua marilia fatimana, 93')
+evento_2 = Evento.criar_evento('Rave', '10/11', 'Chacará do andes, 579')
+
+print(Evento.mostrar_evento())
 
 # 15. Sistema de Inventário
 # Crie uma classe ItemInventario que tenha atributos nome, quantidade e preco_unitario. Adicione um método de classe adicionar_item que crie um item e o adicione a uma lista de inventário. Implemente uma propriedade que calcule o valor total do item no inventário (quantidade * preco_unitario).
 
+class ItemInventario:
+
+    todos_os_itens_inventario = []
+    def __init__(self, nome, quantidade, preco_unitario):
+        self.nome = nome
+        self.quantidade = quantidade
+        self.preco_unitario = preco_unitario
+        ItemInventario.todos_os_itens_inventario.append(self)
+        
+    
+    @classmethod
+    def adicionar_item(cls, nome, quantidade, preco_unitario ):
+        return cls(nome, quantidade, preco_unitario)
+    
+    @property
+    def valor_total(self):
+        return self.quantidade * self.preco_unitario
+    
+    @classmethod
+    def mostrar_tudo(cls):
+        if not cls.todos_os_itens_inventario:
+            return 'Não existe itens no inventario!'
+        
+        resultado = 'Itens do inventario\n'+ '=' * 20+'\n'
+        for item in cls.todos_os_itens_inventario:
+            resultado += (f'Nome: {item.nome}\n'
+                          f'Quantidade: {item.quantidade}\n'
+                          f'Preço Unitário: R$ {item.preco_unitario:.2f}\n'
+                          f'Valor Total: R$ {item.valor_total:.2f}\n\n')
+        return resultado
+    
+item_1 = ItemInventario.adicionar_item('Mesa', 5, 250)
+item_2 = ItemInventario.adicionar_item('Cadeira', 10, 75)
+
+
+print(ItemInventario.mostrar_tudo())
+
 # 16. Gestão de Reservas de Restaurantes
 # Crie uma classe Reserva com atributos cliente, data e numero_de_pessoas. Adicione um método de classe fazer_reserva que receba as informações da reserva e retorne um objeto Reserva. Implemente uma propriedade que retorne a descrição da reserva.
+
+class Reserva:
+
+    reservas = []
+    def __init__(self, cliente, data, numero_de_pessoas):
+        self.cliente = cliente
+        self.data = data
+        self.numero_de_pessoas = numero_de_pessoas
+        Reserva.reservas.append(self)
+    
+    @classmethod
+    def fazer_reserva(cls, cliente, data, numero_de_pessoas):
+        cls(cliente, data, numero_de_pessoas)
+    
+    @property
+    def descricao(self):
+        return (f'Cliente: {self.cliente}\n'
+                f'Data: {self.data}\n'
+                f'Numero de pessoas: {self.numero_de_pessoas}\n')
+    
+    @classmethod
+    def mostrar_reservar(cls):
+        if not cls.reservas:
+            return 'Não á reservas!'
+        resultado = 'Reservas\n'+'-'*25+'\n\n'
+        for reserva in cls.reservas:
+            resultado += reserva.descricao+'-'*25+'\n'
+        return resultado
+
+reserva_1 = Reserva.fazer_reserva('Adamos', '10/11/2024', 4)
+reserva_2 = Reserva.fazer_reserva('Alesson', '11/11/2024', 8)
+
+print(Reserva.mostrar_reservar())
 
 # 17. Controle de Funcionários de uma Escola
 # Crie uma classe Professor com atributos nome, materia e salario. Adicione um método de classe contratar que receba as informações do professor e retorne um objeto Professor. Implemente uma propriedade que calcule o salário anual do professor.
 
+class Professor:
+
+    professores = []
+    def __init__(self, nome, materia, salario):
+        self.nome = nome
+        self.materia = materia
+        self.salario = salario
+        Professor.professores.append(self)
+    
+    @classmethod
+    def contratar(cls, nome, materia, salario):
+        return cls(nome, materia, salario)
+    
+    @property
+    def salario_anual(self):
+        return self.salario * 12
+    
+    @classmethod
+    def descricao(cls):
+        resultado = 'Funcionarios\n'+'='*25+'\n' 
+        for descricao in cls.professores:
+            resultado += (f'Nome: {descricao.nome}\n'
+                    f'Materia: {descricao.materia}\n'
+                    f'Salario: {descricao.salario:.2f}\n'
+                    f'Salario anual: {descricao.salario_anual:.2f}'
+                    f'\n'+'-'*25+'\n')
+        return resultado
+
+professor_1 = Professor.contratar('Jerônimo', 'História', 2800)
+professor_2 = Professor.contratar('Rodolfo', 'Fisíca', 2800)
+
+print(Professor.descricao())
+        
 # 18. Gestão de Alunos
 # Crie uma classe Aluno com atributos nome, curso e nota_final. Adicione um método de classe adicionar_aluno que receba as informações do aluno e retorne um objeto Aluno. Implemente uma propriedade que determine se o aluno está aprovado (nota_final maior ou igual a 7).
+
+class Aluno:
+
+    alunos = []
+    def __init__(self, nome, curso, nota_final):
+        self.nome = nome
+        self.curso = curso
+        self.nota_final = nota_final
+        Aluno.alunos.append(self)
+    
+    @classmethod
+    def adicionar_aluno(cls, nome, curso, nota_final):
+        return cls(nome, curso, nota_final)
+    
+    @property
+    def status(self):
+        if self.nota_final >= 7:
+            return 'Aprovado!'
+        else:
+            return 'Reprovado!'
+    
+    @classmethod
+    def descricao(cls):
+        if not cls.alunos:
+            return 'Não possui alunos!'
+        resultado = 'Informação dos alunos\n'+'=' * 30+'\n'
+        for aluno in cls.alunos:
+            resultado += (f'Nome: {aluno.nome}\n'
+                    f'Curso: {aluno.curso}\n'
+                    f'Nota final: {aluno.nota_final}\n'
+                    f'Status: {aluno.status}'
+                    f'\n'+'-'*30+'\n')
+        return resultado
+
+aluno_1 = Aluno.adicionar_aluno('Adamos', 'Ciência da computação', 10)    
+aluno_2 = Aluno.adicionar_aluno('Alesson', 'Sistema de informação', 10)    
+aluno_3 = Aluno.adicionar_aluno('Everton', 'Bombeiro', 5)    
+
+print(Aluno.descricao())
 
 # 19. Sistema de Compras Online
 # Crie uma classe Compra com atributos cliente, produtos (uma lista de produtos) e valor_total. Adicione um método de classe realizar_compra que receba o nome do cliente e uma lista de produtos e calcule o valor total. Implemente uma propriedade que retorne a descrição da compra.
 
+class Compra:
+
+    compras = []
+    def __init__(self, cliente, produtos, valor_total):
+        self.cliente = cliente
+        self.produtos = produtos
+        self.valor_total = valor_total
+        Compra.compras.append(self)
+
+    @classmethod
+    def realizar_compra(cls,cliente,produtos):
+        valor_total = sum(produtos.values())
+        compra = cls(cliente, produtos, valor_total)
+        return compra
+    
+    @property
+    def descricao(self):
+        formatacao = '\n'.join([f'{produto}: R$ {preco:.2f}' for produto, preco in self.produtos.items()])
+        return(f'Cliente: {self.cliente}\n'
+               f'Produtos: \n{formatacao}\n'
+               f'Valor total: {self.valor_total:.2f}'
+               f'\n'+'='*25)
+    
+    @classmethod
+    def mostrar_tudo(cls):
+        if not cls.compras:
+            return 'Não existe compras!'
+        return '\n'.join([compra.descricao for compra in cls.compras])
+
+produtos_para_comprar_1 = {'Saco de lixo' : 3.99, 'Talheres' : 29.90}
+compra_1 = Compra.realizar_compra('Adamos', produtos_para_comprar_1)
+
+produtos_para_comprar_2 = {'Suculenta' : 3.99, 'Caixa de som para computador' : 29.90}
+compra_2 = Compra.realizar_compra('Alesson', produtos_para_comprar_2)
+
+print(Compra.mostrar_tudo())
+        
 # 20. Controle de Equipamentos de uma Academia
 # Crie uma classe Equipamento com atributos nome, tipo e quantidade. Adicione um método de classe adicionar_equipamento que receba as informações do equipamento e retorne um objeto Equipamento. Implemente uma propriedade que retorne a descrição do equipamento.
 
+class Equipamento:
+
+    equipamentos = []
+    def __init__(self, nome, tipo, quantidade):
+        self.nome = nome
+        self.tipo = tipo
+        self.quantidade = quantidade
+        Equipamento.equipamentos.append(self)
+    
+    @classmethod
+    def adicionar_equipamento(cls, nome, tipo, quantidade):
+        return cls(nome, tipo, quantidade)
+    
+    @property
+    def descricao(self):
+        return (f'Nome: {self.nome}\n'
+                f'Tipo: {self.tipo}\n'
+                f'Quantidade: {self.quantidade}\n')
+    
+    @classmethod
+    def exibir(cls):
+        if not cls.equipamentos:
+            return 'Não há equipamentos!'
+        resultado = '\nEquipementos de academia\n'+'='*30+'\n'
+        for equipamento in cls.equipamentos:
+            resultado += equipamento.descricao+'\n'+'-' * 30+'\n'
+        return resultado
+    
+equipamento_1 = Equipamento.adicionar_equipamento('Esteira', 'Aerobico', 10)
+equipamento_2 = Equipamento.adicionar_equipamento('Barra Olímpica', 'Musculação', 5)
+
+print(Equipamento.exibir())
