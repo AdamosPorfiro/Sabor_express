@@ -125,53 +125,50 @@ class Moeda:
     
 moeda_dollar = Moeda.a_partir_de_taxa('Dolar', 5)
 moeda_dollar.imprimir_dados()
-# print()
-# print(f'Moeda: {moeda_dollar.nome}')
-# print(f'A taxa de conversão de um {moeda_dollar.nome} é de R$ {moeda_dollar.taxa_conversao} reais ')
 
 # 5. Sistema de Cadastro de Estudantes:
 # Crie uma classe Estudante com atributos como nome, idade e curso. Adicione um método de classe cadastrar que receba as informações de um estudante e retorne um objeto Estudante. Implemente uma propriedade que retorne uma descrição do estudante, incluindo o nome, idade e curso.
 
-# class Estudante:
+class Estudante:
 
-#     estudantes = {}
+    estudantes = {}
 
-#     def __init__(self, nome, idade, curso):
-#         self.nome = nome
-#         self.idade = idade
-#         self.curso = curso
-#         Estudante.estudantes[self.nome]= {
-#             'Idade' : self.idade, 
-#             'Curso' : self.curso
-#         }
+    def __init__(self, nome, idade, curso):
+        self.nome = nome
+        self.idade = idade
+        self.curso = curso
+        Estudante.estudantes[self.nome]= {
+            'Idade' : self.idade, 
+            'Curso' : self.curso
+        }
     
-#     @classmethod
-#     def cadastrar(cls,nome,idade,curso):
-#         return cls(nome, idade, curso)
+    @classmethod
+    def cadastrar(cls,nome,idade,curso):
+        return cls(nome, idade, curso)
     
-#     @classmethod
-#     def listar_alunos(cls):
-#         for nome, dados in cls.estudantes.items():
-#             estudante = cls(nome, dados['Idade'], dados['Curso'])
-#             print(estudante.descricao)
+    @classmethod
+    def listar_alunos(cls):
+        for nome, dados in cls.estudantes.items():
+            estudante = cls(nome, dados['Idade'], dados['Curso'])
+            print(estudante.descricao)
     
 
-#     @property
-#     def descricao(self):
-#         return f'\nAluno: {self.nome}\nIdade: {self.idade}\nCurso:{self.curso}\n'
+    @property
+    def descricao(self):
+        return f'\nAluno: {self.nome}\nIdade: {self.idade}\nCurso:{self.curso}\n'
     
-# resp = 'S'
-# while resp == 'S':
-#     nome = input('\nNome: ')
-#     idade = int(input('Idade: '))
-#     curso = input('Curso: ')
-#     Estudante.cadastrar(nome, idade, curso)
+resp = 'S'
+while resp == 'S':
+    nome = input('\nNome: ')
+    idade = int(input('Idade: '))
+    curso = input('Curso: ')
+    Estudante.cadastrar(nome, idade, curso)
 
-#     resp = input('Deseja cadastrar mais alunos? [S/N]: ').upper().strip()
-#     if resp == 'N':
-#         break
+    resp = input('Deseja cadastrar mais alunos? [S/N]: ').upper().strip()
+    if resp == 'N':
+        break
 
-# Estudante.listar_alunos()
+Estudante.listar_alunos()
 
 # 6. Controle de Funcionários:
 # Crie uma classe Funcionario com atributos nome, cargo e salario. Adicione um método de classe criar_por_cargo que recebe um cargo e cria um funcionário com um salário padrão. Adicione uma propriedade que calcule o salário anual (salário mensal multiplicado por 12).
@@ -372,9 +369,6 @@ print(Atividade.mostrar_todas_as_atividade())
 # 11. Sistema de Gestão de Clientes
 # Crie uma classe Cliente que tenha atributos nome, email e telefone. Adicione um método de classe cadastrar_cliente que receba as informações de um cliente e retorne um objeto Cliente. Implemente uma propriedade que retorne a descrição do cliente.
 
-'''
-Temos uma classe que irá criar um objeto que possui 3 atributos, que são alimentados pela instância de classe, cliente 1 e 2, e esses dados são todos armazenados na lista como é indicado no construtor __init__. Temos um metodo de classe que vai retornar 1 objeto completo e uma propriedade que vai descrever os atributos informados e outro metodo de classe que irá retornar todos os objetos cadastrados na lista e por fim imprimi-los para o usuario.
-'''
 class Cliente:
 
     clientes = [] # Lista com os objetos
