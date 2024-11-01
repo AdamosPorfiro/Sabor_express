@@ -32,18 +32,3 @@ restaurante_pizza = Restaurante('pizza Express', 'italiana')
 Restaurante.listar_restaurantes()
 
 
-# class Musica:
-#     musicas = []
-
-#     def __init__(self,nome,artista,duracao):
-#         self.nome = nome
-#         self.artista = artista
-#         self.duracao = duracao
-#         Musica.musicas.append(self)
-    
-#     def listar_musicas():
-#         for musica in Musica.musicas:
-#             print(f'Nome da música: {musica.nome}\nNome do artista: {musica.artista}\nDuração da música: {musica.duracao} minutos') 
-
-# Musica('Lacrimosa - Warum so tief?', 'Tilo wolf', 9.11)
-# Musica.listar_musicas()
