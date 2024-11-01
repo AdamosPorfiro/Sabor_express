@@ -23,12 +23,7 @@ class Restaurante: # Classe + Atributos
     def alternar_estado(self):
         self._ativo = not self._ativo
     
-restaurante_praca = Restaurante('praça','gourmet')
-restaurante_praca.alternar_estado()
-restaurante_pizza = Restaurante('pizza Express', 'italiana')
-
 # print(dir(restaurante_praca)) #dir = Exibe todas os atributos, métodos e propriedades de um self.
 #vars = Mostra um dicionarios dos atributos e metodos, que foi os atributos passados no código anterior
 Restaurante.listar_restaurantes()
-
 
