@@ -22,7 +22,7 @@ livro_2 = Livro('Anhangá: a Fúria do Demônio', 'J. Modesto', 2008)
 
 print(f'{livro_1}\n{livro_2}')
 
-3.Adicione um método de instância chamado emprestar à classe Livro que define o atributo disponivel como False. Crie uma instância da classe, chame o método emprestar e imprima se o livro está disponível ou não.
+#3.Adicione um método de instância chamado emprestar à classe Livro que define o atributo disponivel como False. Crie uma instância da classe, chame o método emprestar e imprima se o livro está disponível ou não.
 
     def __str__(self):
         return f'\nTitulo: {self.titulo}\nAutor: {self.autor}\nAno de publicação: {self.ano_publicacao}\nStatus: {'Disponível' if self.disponivel else 'Indisponível'}'
