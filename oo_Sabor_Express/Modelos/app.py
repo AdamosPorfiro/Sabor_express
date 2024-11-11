@@ -1,15 +1,16 @@
 from Restaurante import Restaurante
+from Cardapio.Bebida import Bebida
+from Cardapio.Prato import Prato
 
 restaurante_praca = Restaurante('Praça', 'Gourmet',)
-# restaurante_mexicano = Restaurante('Mexican food', 'Mexicana')
-# restaurante_mexicano.alternar_estado()
-# restaurante_japones = Restaurante('Japa', 'Japonesa')
-restaurante_praca.receber_avaliacao('Gui', 10)
-restaurante_praca.receber_avaliacao('Laís', 8)
-restaurante_praca.receber_avaliacao('Emy', 2)
+bebida_suco = Bebida('Suco de melância', 5.0, 'Grande' )
+prato_paozinho = Prato('Pãozinho', 2.00, 'O melhor pão da cidade')
+
+
 
 def main():
-    Restaurante.listar_restaurantes()
+    print(bebida_suco)
+    print(prato_paozinho)
 
 if __name__ == '__main__':
     main()
