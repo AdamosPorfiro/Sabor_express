@@ -7,4 +7,4 @@
 # 6- Implemente o Método Especial str na Classe Filha (Moto): Adicione um método especial str à classe Moto que estenda o método da classe pai (Veiculo) e inclua a informação sobre o tipo da moto.
 # 7- Crie um Arquivo Main (main.py): Crie um arquivo chamado main.py no mesmo diretório que suas classes.
 # 8- Importe e Instancie Objetos: No arquivo main.py, importe as classes Carro e Moto. Em seguida, crie três instâncias de Carro e Moto com diferentes marcas, modelos, quantidade de portas e tipos.
-# - Exiba as Informações: Para cada instância, imprima no console as informações utilizando o método str.
+# 9- Exiba as Informações: Para cada instância, imprima no console as informações utilizando o método str.
