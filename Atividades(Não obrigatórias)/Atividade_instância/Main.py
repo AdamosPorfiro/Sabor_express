@@ -2,7 +2,7 @@
 # 8- Importe e Instancie Objetos: No arquivo main.py, importe as classes Carro e Moto. Em seguida, crie três instâncias de Carro e Moto com diferentes marcas, modelos, quantidade de portas e tipos.
 # 9- Exiba as Informações: Para cada instância, imprima no console as informações utilizando o método str.
 
-from Exercicio_2 import Veiculo
+from Exercicio_2_pai import Veiculo
 from Exercicio_3_carro_filha import Carro
 from Exercicio_4_moto_filha import Moto
 
@@ -17,7 +17,8 @@ Carro_3 = Carro('Volkswagen', 'Fusca 1.5', 2)
 
 
 def main():
-    print(moto_1, moto_2, moto_3)
+    print(Carro_1, Carro_2, Carro_3, sep='\n\n')
+    print('\n',moto_1,moto_2,moto_3, sep='\n\n')
 
 if __name__ == '__main__':
     main()

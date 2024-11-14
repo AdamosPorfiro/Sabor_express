@@ -11,5 +11,5 @@ class Veiculo:
 # 2- Construa o Método Especial str: Adicione um método especial str à classe Veiculo que retorna uma mensagem formatada com a marca, modelo e o estado de ligado/desligado do veículo.
 
     def __str__(self):
-        return f'Marca:{self._marca}\nModelo: {self._modelo}\nStatus: {'Ligado' if self._ligado == True else 'Desligado'}'
+        return f'Marca: {self._marca}\nModelo: {self._modelo}\nStatus: {'Ligado' if self._ligado == True else 'Desligado'}'
 
