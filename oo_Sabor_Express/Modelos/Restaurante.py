@@ -1,4 +1,5 @@
 from Avaliação import Avaliacao
+from Cardapio.Item_cardapio import ItemCardapio
 
 '''Objeto resturante'''
 class Restaurante: # Classe + Atributos
@@ -15,6 +16,7 @@ class Restaurante: # Classe + Atributos
         self._categoria = categoria.title()
         self._ativo = False
         self._avaliacao = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self)
 
     '''Retorna uma fstring dos nomes dos restaurantes e suas categorias'''
@@ -54,6 +56,19 @@ class Restaurante: # Classe + Atributos
         quantidade_de_notas = len(self._avaliacao)
         media = round(soma_das_nontas / quantidade_de_notas, 1)
         return media
-# print(dir(restaurante_praca)) #dir = Exibe todas os atributos, métodos e propriedades de um self.
-#vars = Mostra um dicionarios dos atributos e metodos, que foi os atributos passados no código anterior
+
+    def adicionar_item_no_cardapio(self, item):
+            if isinstance(item, ItemCardapio):
+                self._cardapio.append(item)
+
+    @property
+    def exibir_cardapio(self):
+        print(f'Cardapio do restaurante {self._nome}\n')
+        for i, item in enumerate(self._cardapio, start = 1):
+            if hasattr(item,'descricao'):
+                mensagem_prato = f'{i}. Nome: {item._nome} | Preço: R$ {item._preco} | Descrição: {item.descricao}'
+                print(mensagem_prato)
+            else:
+                mensagem_bebida = f'{i}. Nome: {item._nome} | Preço: R$ {item._preco} | Tamanho: {item.tamanho}'
+                print(mensagem_bebida)
 
