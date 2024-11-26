@@ -1,6 +1,6 @@
 import requests
 
-url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json'
+url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json' #Esse arquivo é muito comumente usado em programação, chamad JSON
 
 response = requests.get(url)
 print(response)
