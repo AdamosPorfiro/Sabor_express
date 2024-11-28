@@ -9,7 +9,7 @@ import json
 url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json' #Esse arquivo é muito comumente usado em programação, chamad JSON
 
 """
-Essa variavel acessa a variavel url que é onde o nosso arquivo .json está, utilizando uma função da biblioteca .get 
+A variavel response, acessa a variavel url que é onde o nosso arquivo .json está, utilizando uma função da biblioteca request chamada .get()
 response = resposta que teremos
 """
 response = requests.get(url)
