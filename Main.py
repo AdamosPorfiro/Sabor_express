@@ -7,13 +7,20 @@ import requests
 
 app = FastAPI()
 
+#endPoint
 @app.get('/api/hello')
 def hello_world():
+    '''
+    Endpoint que exibe uma mensagem incrível do mundo da programação!
+    '''
     return {'Hello':'World'}
 
 #Endpoint
 @app.get('/api/restaurante/')
 def get_restaurantes(restaurante: str = Query(None)):
+    '''
+    Endpoint para ver os cardápios dos restaurantes
+    '''
     url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json'
     response = requests.get(url)
 
